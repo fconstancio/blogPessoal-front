@@ -10,11 +10,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
                 <li class="nav-item">
                     <!-- TODO:TROCAR LINK DA IMG -->
-                    <img src="https://i.imgur.com/ts3hLkr_d.webp?maxwidth=760&fidelity=grand" alt="image do user"
+                    <img src="{{foto}}" alt="image do user"
                         width="50px" height="50px" class="img-fluid rounded-circle">
                 </li>
                 <li class="nav-item ps-3 ">
-                    <p class="m-0 fw-bolder text-white fs-16">Nome do usuário</p>
+                    <p class="m-0 fw-bolder text-white fs-16">{{nome}}</p>
                 </li>
                 <li class="nav-item ps-3 ">
                     <a href="#">
@@ -25,7 +25,7 @@
 
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
                 <li class="nav-item ps-3">
-                    <a href="#" class="m-0 fw-bolder text-white fs-16">Sair
+                    <a (click)='sair()' class="m-0 fw-bolder text-white fs-16">Sair
                         <fa-icon [icon]="faSignOutAlt" class="px-1"></fa-icon>
                     </a>
                 </li>
