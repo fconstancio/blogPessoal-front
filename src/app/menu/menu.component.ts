@@ -13,8 +13,8 @@ export class MenuComponent implements OnInit {
   faEdit = faEdit;
   faSignOutAlt = faSignOutAlt;
 
-  nome: String = environment.nome
-  foto: String = environment.foto
+  nome: string = environment.nome
+  foto: string = environment.foto
 
   constructor(
     private router: Router
