@@ -8,43 +8,47 @@
                     <form>
                         <div class="mb-1">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Seu nome">
+                            <input [(ngModel)]='user.nome' 
+                            type="text" class="form-control" name="nome" id="nome" placeholder="Seu nome">
                         </div>
 
                         <div class="mb-1">
                             <label for="usuario" class="form-label">Usuário</label>
-                            <input type="text" class="form-control" name="usuario" id="ususario"
+                            <input [(ngModel)]='user.usuario'
+                             type="text" class="form-control" name="usuario" id="ususario"
                                 placeholder="Seu usuário">
                         </div>
 
                         <div class="mb-1">
                             <label for="foto" class="form-label">Link da Foto</label>
-                            <input type="text" class="form-control" name="foto" id="foto"
+                            <input [(ngModel)]='user.foto'
+                            type="text" class="form-control" name="foto" id="foto"
                                 placeholder="Link da sua foto">
                         </div>
 
                         <div class="mb-1">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" name="senha" id="senha" placeholder="Sua senha">
+                            <input (input)='confirmSenha($event)' type="password" class="form-control" name="senha" id="senha" placeholder="Sua senha">
                         </div>
 
                         <div class="mb-1">
                             <label for="confirmSenha" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control" name="confirmSenha" id="confirmSenha"
+                            <input [(ngModel)]='user.senha'  type="password" class="form-control" name="confirmSenha" id="confirmSenha"
                                 placeholder="Confirme sua senha">
                         </div>
+
                         <div class="mb-1">
                             <label for="tipoUsuario" class="form-label">Tipo de Usuário</label>
-                            <select name="tipo" id="tipo" class="form-control">
+                            <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
                                 <option>Selecione um tipo de usuário:</option>
                                 <option value="normal">Normal</option>
-                                <option value="adm">Administrador</option>
+                                <option value="admin">Administrador</option>
                             </select>
                         </div>
 
                         <div class="d-flex justify-content-center mt-2">
                             <button type="submit" class="btn btn-danger me-4" routerLink='/entrar'>Cancelar</button>
-                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                            <button type="submit" class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
                         </div>
 
                     </form>
