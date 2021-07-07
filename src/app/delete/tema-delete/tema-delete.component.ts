@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment.prod';
 export class TemaDeleteComponent implements OnInit {
 
   tema: Tema = new Tema()
-  idTeam: number
+  idTema: number
 
   constructor(
     private temaService: TemaService,
@@ -23,25 +23,24 @@ export class TemaDeleteComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
 
-    if(environment.token !){
-      if (environment.token == '') {
-        this.router.navigate(['/entrar'])
-      }
+    if (environment.token == '') {
+      this.router.navigate(['/entrar'])
     }
 
-    this.idTeam = this.route.snapshot.params['id']
-    this.findByIdTema(this.idTeam)
+    this.temaService.refreshToken()
+    this.idTema = this.route.snapshot.params['id']
+    this.findByIdTema(this.idTema)
 
   }
 
-  findByIdTema(id:number){
-    this.temaService.getById(id).subscribe((resp:Tema)=>{
+  findByIdTema(id: number) {
+    this.temaService.getById(id).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
 
-  apagar(){
-    this.temaService.deleteTema(this.idTeam).subscribe(()=>{
+  apagar() {
+    this.temaService.deleteTema(this.idTema).subscribe(() => {
       alert('Tema deletado')
       this.router.navigate(['/tema'])
     })
