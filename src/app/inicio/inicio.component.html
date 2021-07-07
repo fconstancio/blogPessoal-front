@@ -57,7 +57,7 @@
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title m-0">{{item.titulo}} </h5>
-                            <small class="text-muted">{{item.tema.descricao}}</small>
+                            <small class="text-muted">Tema: {{item.tema.descricao}}</small>
                             <p class="card-text">{{item.texto}} </p>
                             <p class="card-text"><small class="text-muted">{{item.date | date: 'dd/MM/yyyy'}} às
                                     {{item.date | date: 'HH:mm'}}</small></p>
@@ -77,10 +77,12 @@
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title m-0">{{item.titulo}} </h5>
-                            <small class="text-muted">{{item.tema.descricao}}</small>
+                            <small class="text-muted">Tema: {{item.tema.descricao}}</small>
                             <p class="card-text">{{item.texto}} </p>
                             <p class="card-text"><small class="text-muted">{{item.date | date: 'dd/MM/yyyy'}} às
                                     {{item.date | date: 'HH:mm'}}</small></p>
+                            <a class="text-info ms-3" [routerLink]="['/postagem-edit', item.id]">Editar</a>
+                            <a class="text-danger ms-3" [routerLink]="['/postagem-delete', item.id]">Apagar</a>
                         </div>
                     </div>
                 </div>

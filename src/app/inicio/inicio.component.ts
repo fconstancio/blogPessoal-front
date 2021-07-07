@@ -39,9 +39,9 @@ export class InicioComponent implements OnInit {
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
-    this.findByIdUser()
     this.findAllTema()
     this.findAllPostagem()
+    this.findByIdUser()
   }
 
   findByIdUser(){

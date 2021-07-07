@@ -15,12 +15,20 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+  // token = {
+  //   headers: new HttpHeaders().set('Authorization', environment.token)
+  // }
+
+  refreshToken() {
+    let token ={}
+    return token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
   }
 
-  findById(id:number):Observable<User>{
-    return this.http.get<User>(`${environment.uri}/usuarios/${id}`, this.token)
+  findById(id: number): Observable<User> {
+    this.refreshToken()
+    return this.http.get<User>(`${environment.uri}/usuarios/${id}`, this.refreshToken())
   }
 
   entrar(userLogin: UserLogin): Observable<UserLogin> {
@@ -37,10 +45,10 @@ export class AuthService {
     if (environment.token != '') {
       ok = true
     }
-    
+
     return ok
   }
 
-  
+
 
 }

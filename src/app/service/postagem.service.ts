@@ -23,12 +23,24 @@ export class PostagemService {
     }
   }
 
-  getAllTema():Observable<Postagem[]> {
+  getById(id:number):Observable<Postagem>{
+    return this.http.get<Postagem>(`${environment.uri}/postagens/${id}`, this.token)
+  }
+
+  getAllTema(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(`${environment.uri}/postagens`, this.token)
   }
 
-  post(postagem:Postagem):Observable<Postagem>{
-    return this.http.post<Postagem>(`${environment.uri}/postagens`,postagem, this.token)
+  post(postagem: Postagem): Observable<Postagem> {
+    return this.http.post<Postagem>(`${environment.uri}/postagens`, postagem, this.token)
+  }
+
+  put(postagem: Postagem):Observable<Postagem>{
+    return this.http.put<Postagem>(`${environment.uri}/postagens`, postagem, this.token)
+  }
+
+  delete(id:number){
+    return  this.http.delete(`${environment.uri}/postagens/${id}`, this.token)
   }
 
 }
